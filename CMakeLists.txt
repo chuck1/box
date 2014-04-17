@@ -11,12 +11,7 @@ add_executable(box src/main.cpp)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -D_DEBUG -std=c++0x -Wall -Wno-unknown-pragmas -Wno-unused-local-typedefs -rdynamic -pthread -pg")
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> b904f703883f7691673f7b2619514cf590e5073b
-#find_library(nebula NAME nebula PATHS ../../nebula)
+find_package(nebula REQUIRE)
 
 find_package(PkgConfig REQUIRED)
 pkg_search_module(GLFW REQUIRED glfw3)
