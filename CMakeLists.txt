@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 2.8.7)
-include(ExternalProject)
+#include(ExternalProject)
 
 project (box)
 
@@ -11,8 +11,16 @@ add_executable(box src/main.cpp)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -D_DEBUG -std=c++0x -Wall -Wno-unknown-pragmas -Wno-unused-local-typedefs -rdynamic -pthread -pg")
 
-find_package(math)
-find_package(nebula)
+find_package(math REQUIRED)
+if(MATH_LIBRARIES)
+	MESSAGE("math found")
+endif(MATH_LIBRARIES)
+
+find_package(nebula REQUIRED)
+
+#find_package(nebula)
+
+set(LIBS ${LIBS} ${MATH_LIBRARIES})
 
 find_package(PkgConfig REQUIRED)
 pkg_search_module(GLFW REQUIRED glfw3)
@@ -20,7 +28,7 @@ pkg_search_module(GLFW REQUIRED glfw3)
 target_link_libraries(box nebula)
 target_link_libraries(box glutpp)
 target_link_libraries(box galaxy)
-target_link_libraries(box math)
+target_link_libraries(box ${LIBS})
 
 target_link_libraries(box GL GLU)
 target_link_libraries(box glfw3)
