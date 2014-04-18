@@ -11,11 +11,6 @@ add_executable(box src/main.cpp)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -D_DEBUG -std=c++0x -Wall -Wno-unknown-pragmas -Wno-unused-local-typedefs -rdynamic -pthread -pg")
 
-find_package(math REQUIRED)
-if(MATH_LIBRARIES)
-	MESSAGE("math found")
-endif(MATH_LIBRARIES)
-
 find_package(nebula REQUIRED)
 
 #find_package(nebula)
