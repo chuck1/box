@@ -11,18 +11,27 @@ add_executable(box src/main.cpp)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -D_DEBUG -std=c++0x -Wall -Wno-unknown-pragmas -Wno-unused-local-typedefs -rdynamic -pthread -pg")
 
+find_package(math REQUIRED)
+find_package(galaxy REQUIRED)
+find_package(gru REQUIRED)
 find_package(nebula REQUIRED)
 
 #find_package(nebula)
 
-set(LIBS ${LIBS} ${MATH_LIBRARIES})
+MESSAGE("${MATH_LIBRARIES}")
+MESSAGE("${GRU_LIBRARIES}")
+MESSAGE("${GALAXY_LIBRARIES}")
+MESSAGE("${NEBULA_LIBRARIES}")
+
+
+set(LIBS ${LIBS} ${MATH_LIBRARIES} ${GRU_LIBRARIES} ${GALAXY_LIBRARIES} ${NEBULA_LIBRARIES})
+
+MESSAGE("${LIBS}")
 
 find_package(PkgConfig REQUIRED)
 pkg_search_module(GLFW REQUIRED glfw3)
 
-target_link_libraries(box nebula)
-target_link_libraries(box glutpp)
-target_link_libraries(box galaxy)
+target_link_libraries(box ${LIBS})
 target_link_libraries(box ${LIBS})
 
 target_link_libraries(box GL GLU)

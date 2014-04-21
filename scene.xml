@@ -22,7 +22,6 @@
 				<diffuse>red</diffuse>
 			</front>
 		</shape>
-<<<<<<< HEAD
 		<fd>
 			<sim>
 				<w0>DYNAMIC</w0>
@@ -32,8 +31,6 @@
 			</sim>
 		</fd>
 		<flag>DESTRUCTIBLE</flag>
-=======
->>>>>>> b904f703883f7691673f7b2619514cf590e5073b
 	</actor>
 
 	<actor type="rigid_dynamic" mode_create="deferred" name="proj0">
@@ -55,20 +52,14 @@
 		</shape>
 		<fd>
 			<sim>
-<<<<<<< HEAD
 				<w0>DYNAMIC</w0>
 				<w1>RIGID_AGAINST</w1>
 				<w2>PROJECTILE</w2>
 				<w3>PROJECTILE_AGAINST</w3>
-=======
-				<w2>PROJECTILE</w2>
-				<w3>PROJECTILE_AGAINST</w3>	
->>>>>>> b904f703883f7691673f7b2619514cf590e5073b
 			</sim>
 		</fd>
 	</actor>
 	
-<<<<<<< HEAD
 	<actor type="rigid_static">
 		<pose>
 			<p> 0.0,-5.0, 0.0</p>
@@ -93,11 +84,6 @@
 	<actor type="rigid_static">
 		<pose>
 			<p> 0.0, 2005.0, 0.0</p>
-=======
-	<actor type="rigid_static">
-		<pose>
-			<p> 0.0,-5.0, 0.0</p>
->>>>>>> b904f703883f7691673f7b2619514cf590e5073b
 			<q><v>1.0, 0.0, 0.0</v><a>0.0</a></q>
 		</pose>
 		<shape type="box">
@@ -124,11 +110,7 @@
 		<shape type="box">
 			<s>2.0, 2.0, 2.0</s>
 			<front>
-<<<<<<< HEAD
 				<diffuse>sine</diffuse>
-=======
-				<diffuse>white</diffuse>
->>>>>>> b904f703883f7691673f7b2619514cf590e5073b
 			</front>
 			<!--<image>bigtux.png</image>-->
 		</shape>
@@ -171,11 +153,7 @@
 		<shape type="box">
 			<s>1.0, 5.0, 9.0</s>
 			<front>
-<<<<<<< HEAD
 				<diffuse>saw</diffuse>
-=======
-				<diffuse>cyan</diffuse>
->>>>>>> b904f703883f7691673f7b2619514cf590e5073b
 			</front>
 		</shape>
 		<fd>
@@ -234,12 +212,8 @@
 		<shape type="empty">
 			<light>
 				<p> 0.0, 0.0, 0.0, 1.0</p>
-<<<<<<< HEAD
 				<ambient>0.5, 0.5, 0.5, 0.5</ambient>
 				<atten_linear>0.0</atten_linear>
-=======
-				<atten_linear>1.0</atten_linear>
->>>>>>> b904f703883f7691673f7b2619514cf590e5073b
 			</light>
 		</shape>
 	</actor>

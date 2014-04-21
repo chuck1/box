@@ -11,27 +11,26 @@
 
 #include <functional>
 
-#include <neb/network/server.h>
-#include <neb/network/client.h>
+#include <nebula/network/server.hpp>
+#include <nebula/network/client.hpp>
 
-#include <glutpp/master.h>
-#include <glutpp/window/window.h>
-#include <glutpp/renderable.h>
-#include <glutpp/scene/desc.h>
-#include <glutpp/scene/scene.h>
-#include <glutpp/gui/object/object_factory.h>
-#include <glutpp/gui/object/textview.h>
+#include <gru/master.hpp>
+#include <gru/window/window.hpp>
+#include <gru/renderable.hpp>
+#include <gru/scene/desc.hpp>
+#include <gru/scene/scene.hpp>
+#include <gru/gui/object/object_factory.hpp>
+#include <gru/gui/object/textview.hpp>
 
-#include <neb/actor/raw_factory.h>
-#include <neb/app.h>
-#include <neb/user.h>
-#include <neb/physics.h>
-#include <neb/scene/scene.h>
-#include <neb/simulation_callback.h>
-#include <neb/shape.h>
-#include <neb/control/rigid_body/control.h>
-#include <neb/actor/Rigid_Dynamic.h>
-//#include <neb/camera/ridealong.h>
+#include <nebula/actor/raw_factory.hpp>
+#include <nebula/app.hpp>
+#include <nebula/user.hpp>
+#include <nebula/physics.hpp>
+#include <nebula/scene/scene.hpp>
+#include <nebula/simulation_callback.hpp>
+#include <nebula/shape.hpp>
+#include <nebula/control/rigid_body/control.hpp>
+#include <nebula/actor/Rigid_Dynamic.hpp>
 
 
 namespace box
@@ -121,37 +120,12 @@ int	client_main(char const * addr, short unsigned int port) {
 	app->create_window(600, 600, 200, 100, "box");
 	
 	app->reset_client(addr, port);
-<<<<<<< HEAD
 	
 	app->loop();
 	
 	return 0;	
-=======
-	
-<<<<<<< HEAD
-	return desc;
 }
-
-std::shared_ptr<neb::app> app;
-
-int	client_main(char const * addr, short unsigned int port) {
-=======
-	app->loop();
->>>>>>> 44bc9bb801850e5282f7604f3854798bdd622f65
-	
-	return 0;	
-}
-neb::actor::rigid_body::rigid_body_s create_player_actor(glutpp::scene::scene_s scene) {
-	
-	glutpp::actor::desc_s ad = scene->actors_deferred_[(char*)"player0"];
-	assert(ad);
-
-	auto actor = app->scenes_[0]->create_actor_local(ad);
-	auto rigidbody = actor->to_rigid_body();
-	
-	return rigidbody;
-}
-void	create_player(glutpp::window::window_s wnd, glutpp::scene::scene_s scene) {
+/*void	create_player(glutpp::window::window_s wnd, glutpp::scene::scene_s scene) {
 	
 	auto rigidbody = create_player_actor(scene);
 
@@ -161,33 +135,26 @@ void	create_player(glutpp::window::window_s wnd, glutpp::scene::scene_s scene) {
 	// control
 	neb::control::rigid_body::raw_s raw;
 	
-<<<<<<< HEAD
-	app->create_window(box::WINDOW_0, 600, 600, 200, 100, "box");
-	app->create_window(box::WINDOW_1, 600, 600, 200, 100, "box second");
-=======
-	rigidbody->create_control(raw);
->>>>>>> 44bc9bb801850e5282f7604f3854798bdd622f65
+	app->create_window(600, 600, 200, 100, "box");
+	app->create_window(600, 600, 200, 100, "box second");
+
+	//rigidbody->create_control(raw);
 	
 	// user
 	//std::shared_ptr<neb::user> user(new neb::user);	
 	//user->set_control(control);
 	//user->connect(wnd);
 	
-<<<<<<< HEAD
 	app->activate_scene(box::WINDOW_0, box::SCENE_0);
 	app->activate_scene(box::WINDOW_1, box::SCENE_0);
 	//app->activate_layout(box::LAYOUT_GAME);
-=======
 
->>>>>>> b904f703883f7691673f7b2619514cf590e5073b
-}
+}*/
 neb::actor::rigid_body::rigid_body_s create_player_actor(glutpp::scene::scene_s scene) {
->>>>>>> 44bc9bb801850e5282f7604f3854798bdd622f65
 	
 	glutpp::actor::desc_s ad = scene->actors_deferred_[(char*)"player0"];
 	assert(ad);
 
-<<<<<<< HEAD
 	auto actor = app->scenes_[0]->create_actor_local(ad);
 	auto rigidbody = actor->to_rigid_body();
 	
@@ -205,9 +172,7 @@ void	create_player(glutpp::window::window_s wnd, glutpp::scene::scene_s scene) {
 	
 	rigidbody->create_control(raw);
 	
-<<<<<<< HEAD
-	app->prepare();
-=======
+	//app->prepare();
 	// user
 	//std::shared_ptr<neb::user> user(new neb::user);	
 	//user->set_control(control);
@@ -220,7 +185,7 @@ int	server_main(short unsigned int port) {
 	app->reset_server(port);
 
 	glutpp::scene::desc_s sd(new glutpp::scene::desc);
-	sd->load("scene.xml");
+	sd->load("../scene.xml");
 
 	{
 		auto scene = app->load_scene_local(sd);
@@ -230,50 +195,16 @@ int	server_main(short unsigned int port) {
 		app->load_layout(box::LAYOUT_GAME, "layout_game.xml");
 		
 		
-		
-		
 		glutpp::window::window_s wnd = app->create_window(600, 600, 200, 100, "box");
 		
 		
-=======
-	app->reset_server(port);
-
-	glutpp::scene::desc_s sd(new glutpp::scene::desc);
-	sd->load("scene.xml");
-
-	{
-		auto scene = app->load_scene_local(sd);
-		assert(scene);
-
-		app->load_layout(box::LAYOUT_HOME, "layout_home.xml");
-		app->load_layout(box::LAYOUT_GAME, "layout_game.xml");
-
-
-
-
-		glutpp::window::window_s wnd = app->create_window(600, 600, 200, 100, "box");
-
-
->>>>>>> b904f703883f7691673f7b2619514cf590e5073b
 		app->activate_scene(0, 0);
 		app->activate_layout(0, box::LAYOUT_GAME);
 
 		create_player(wnd, scene);
-<<<<<<< HEAD
-	
-		//create_player_actor(scene);
-		// actor
-
-
-=======
-		// actor
-
-
->>>>>>> b904f703883f7691673f7b2619514cf590e5073b
 		// vehicle
 		//app->scenes_[box::SCENE_0]->create_vehicle();
 	}
->>>>>>> 44bc9bb801850e5282f7604f3854798bdd622f65
 	app->loop();
 
 	return 0;
