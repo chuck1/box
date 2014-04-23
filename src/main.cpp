@@ -150,13 +150,13 @@ int	client_main(char const * addr, short unsigned int port) {
 	//app->activate_layout(box::LAYOUT_GAME);
 
 }*/
-neb::actor::rigid_body::rigid_body_s create_player_actor(glutpp::scene::scene_s scene) {
+neb::Actor::RigidBody::RigidBody_s create_player_actor(glutpp::scene::scene_s scene) {
 	
 	glutpp::actor::desc_s ad = scene->actors_deferred_[(char*)"player0"];
 	assert(ad);
 
 	auto actor = app->scenes_[0]->create_actor_local(ad);
-	auto rigidbody = actor->to_rigid_body();
+	auto rigidbody = actor->isRigidBody();
 	
 	return rigidbody;
 }
@@ -191,8 +191,8 @@ int	server_main(short unsigned int port) {
 		auto scene = app->load_scene_local(sd);
 		assert(scene);
 
-		app->load_layout(box::LAYOUT_HOME, "layout_home.xml");
-		app->load_layout(box::LAYOUT_GAME, "layout_game.xml");
+		app->load_layout(box::LAYOUT_HOME, "../layout_home.xml");
+		app->load_layout(box::LAYOUT_GAME, "../layout_game.xml");
 		
 		
 		glutpp::window::window_s wnd = app->create_window(600, 600, 200, 100, "box");
