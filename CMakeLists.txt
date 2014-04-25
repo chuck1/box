@@ -18,11 +18,10 @@ find_package(nebula REQUIRED)
 
 #find_package(nebula)
 
-MESSAGE("${MATH_LIBRARIES}")
+MESSAGE("${MATH_LIBRARIES} ${MATH_INSTALL_DIR}")
 MESSAGE("${GRU_LIBRARIES}")
 MESSAGE("${GALAXY_LIBRARIES}")
 MESSAGE("${NEBULA_LIBRARIES}")
-
 
 set(LIBS ${LIBS} ${MATH_LIBRARIES} ${GRU_LIBRARIES} ${GALAXY_LIBRARIES} ${NEBULA_LIBRARIES})
 
@@ -33,6 +32,7 @@ pkg_search_module(GLFW REQUIRED glfw3)
 
 target_link_libraries(box ${LIBS})
 target_link_libraries(box ${LIBS})
+target_link_libraries(box math)
 
 target_link_libraries(box GL GLU)
 target_link_libraries(box glfw3)
@@ -78,7 +78,7 @@ target_link_libraries(box PvdRuntimeCHECKED)
 target_link_libraries(box RepX3CHECKED)
 target_link_libraries(box PxTaskCHECKED)
 
-add_dependencies(box nebula glutpp galaxy math)
+#add_dependencies(box nebula glutpp galaxy math)
 
 
 
