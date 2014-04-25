@@ -4,11 +4,14 @@ test program for nebula and GRU
 
 ## Installation
 
-comming soon
+requires math, galaxy, gru, and nebula
 
-## TODO
-
-- move to own repo
+    git clone http://www.github.com/chuck1/box.git
+    cd box
+    mkdir build
+    cd build
+    cmake ..
+    make
 
 ## Behavior of Computer players
 
