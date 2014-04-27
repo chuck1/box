@@ -78,7 +78,13 @@ target_link_libraries(box PvdRuntimeCHECKED)
 target_link_libraries(box RepX3CHECKED)
 target_link_libraries(box PxTaskCHECKED)
 
+INSTALL(TARGETS box DESTINATION nebula_demo)
+
 #add_dependencies(box nebula glutpp galaxy math)
 
+SET(CPACK_GENERATOR "DEB")
+SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "Charles Rymal") #required
+ 
+INCLUDE(CPack)
 
 

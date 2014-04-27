@@ -211,7 +211,7 @@
 	<actor type="empty">
 		<shape type="empty">
 			<light>
-				<p> 0.0, 0.0, 0.0, 1.0</p>
+				<p> 1.0, 0.0, 0.0, 0.0</p>
 				<ambient>0.5, 0.5, 0.5, 0.5</ambient>
 				<atten_linear>0.0</atten_linear>
 			</light>
